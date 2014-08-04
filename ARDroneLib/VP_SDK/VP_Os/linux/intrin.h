@@ -8,6 +8,17 @@
 #if defined(__GNUC__)
 
 #if TARGET_CPU_X86 == 1
+static inline uint32_t clz(uint32_t code)
+{
+  uint32_t index = 0;
+  if( code )
+  {
+    _BitScanReverse(&index, code);
+    index ^= 31;
+  }
+
+  return index;
+}
 
 static INLINE uint32_t _byteswap_ulong(uint32_t value)
 {
