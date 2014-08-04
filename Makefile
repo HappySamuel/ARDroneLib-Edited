@@ -1,6 +1,5 @@
 SDK_PATH:=$(shell pwd)/ARDroneLib
 PC_TARGET=yes
-ARMV7=1
 USE_LINUX=yes
 
 
