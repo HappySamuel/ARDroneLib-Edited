@@ -32,6 +32,8 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 
   return value;
 }
+
+/*
 static inline uint32_t clz(uint32_t code)
 {
   uint32_t index = 0;
@@ -43,7 +45,7 @@ static inline uint32_t clz(uint32_t code)
 
   return index;
 }
-
+*/
 #endif // TARGET_CPU_X86
 
 #if TARGET_CPU_ARM == 1
@@ -90,10 +92,9 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 
 #endif // TARGET_OS_IPHONE
 
-#define clz __builtin_clz
 
 #endif // TARGET_CPU_ARM
-
+#define clz __builtin_clz
 #define bswap _byteswap_ulong
 
 #endif // __GNUC__
