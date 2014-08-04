@@ -93,10 +93,9 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 
 #endif // TARGET_OS_IPHONE
 
-#define clz   __builtin_clz
-
 #endif // TARGET_CPU_ARM
 
+#define clz   __builtin_clz
 #define bswap _byteswap_ulong
 
 #endif // __GNUC__
