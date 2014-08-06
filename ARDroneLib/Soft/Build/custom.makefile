@@ -11,14 +11,14 @@ ifndef USE_NDS
 USE_NDS              = no
 endif
 ifndef USE_ANDROID
-USE_ANDROID          = yes
+USE_ANDROID          = no
 endif
 ifndef USE_LINUX
-USE_LINUX            = no
+USE_LINUX            = yes
 endif
 ifndef PROJECT
 # set default to ardrone2 for video TCP com.
-PROJECT              = ardrone2
+PROJECT              = ardrone1
 endif
 MAJOR_VERSION        = 0
 MINOR_VERSION        = 0
