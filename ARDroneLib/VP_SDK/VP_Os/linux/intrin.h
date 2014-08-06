@@ -34,7 +34,7 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 }
 
 
-static inline uint32_t clz(uint32_t code)
+static inline uint32_t _clz(uint32_t code)
 {
   uint32_t index = 0;
   if( code )
@@ -97,7 +97,7 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 #endif // TARGET_CPU_ARM
 
 #define bswap _byteswap_ulong
-
+#define clz _clz
 #endif // __GNUC__
 
 #endif // ! __INTRIN__H__
