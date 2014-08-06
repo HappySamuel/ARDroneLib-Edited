@@ -34,7 +34,7 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 }
 
 
-static inline uint32_t _clz(uint32_t code)
+static inline uint32_t clz(uint32_t code)
 {
   uint32_t index = 0;
   if( code )
@@ -71,7 +71,7 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
 #define uxtb( ret, value, imm )   __asm __volatile ( "uxtb    %0, %1, ror %2" : "=r" (ret) : "r" (value), "I" (imm) )
 #define uxtb16( ret, value, imm ) __asm __volatile ( "uxtb16  %0, %1, ror %2" : "=r" (ret) : "r" (value), "I" (imm) )
 #define uxth( ret, value, imm )   __asm __volatile ( "uxth    %0, %1, ror %2" : "=r" (ret) : "r" (value), "I" (imm) )
-#define clz(ret, value) __asm __volatile ("clz %0 %1\n" : : "=r"(ret) : "r"(value))
+
 #else
 
 static INLINE uint32_t _byteswap_ulong(uint32_t value)
@@ -90,14 +90,27 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
   return value;
 }
 
+static inline uint32_t _clz(uint32_t code)
+{
+  uint32_t index = 0;
+  if( code )
+  {
+    index = __asm __volatile ("clz %0 %1\n" : 
+				 : "=r"(index) : "r"(code));
+  }
+
+  return index;
+}
+
+
 #endif // TARGET_OS_IPHONE
 
-#define clz   __builtin_clz
+#define clz   _clz
 
 #endif // TARGET_CPU_ARM
 
 #define bswap _byteswap_ulong
-
+ 
 #endif // __GNUC__
 
 #endif // ! __INTRIN__H__
