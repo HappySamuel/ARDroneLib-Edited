@@ -11,7 +11,7 @@ ifndef USE_NDS
 USE_NDS              = no
 endif
 ifndef USE_ANDROID
-USE_ANDROID          = no
+USE_ANDROID          = yes
 endif
 ifndef USE_LINUX
 USE_LINUX            = no
