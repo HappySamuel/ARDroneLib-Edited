@@ -24,7 +24,7 @@ static INLINE uint32_t _byteswap_ulong(uint32_t value)
   return value;
 }
 
-
+/**
 static inline uint32_t _clz(uint32_t code)
 {
   uint32_t index = 0;
@@ -36,9 +36,9 @@ static inline uint32_t _clz(uint32_t code)
 
   return index;
 }
-
+**/
 #define bswap _byteswap_ulong
-#define clz _clz
+#define clz __builtin_clz
 
 #endif // __GNUC__
 
