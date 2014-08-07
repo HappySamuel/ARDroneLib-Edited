@@ -30,8 +30,8 @@ static inline uint32_t _clz(uint32_t code)
   uint32_t index = 0;
   if( code )
   {
-    index = __asm __volatile ("clz %0 %1\n" : 
-				 : "=r"(index) : "r"(code));
+  	__asm __volatile ("clz %0 %1\n":  
+		    	  "=r"(index) : "r"(code));
   }
 
   return index;
